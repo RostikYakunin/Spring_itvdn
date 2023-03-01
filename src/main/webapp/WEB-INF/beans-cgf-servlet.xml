@@ -1,0 +1,35 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util
+       https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:annotation-config/>
+
+    <bean id = "weight1" class="org.example.Task2.models.Weight" init-method="init"/>
+
+    <bean id = "car1" class="org.example.Task2.models.Car">
+        <constructor-arg name="id" value="1"/>
+        <property name="model" value="BMW X5"/>
+        <property name="speed" value="250"/>
+        <property name="weight" ref="weight1"/>
+    </bean>
+
+    <util:map id = "hashMap" scope="singleton" map-class="java.util.HashMap">
+        <entry key="1" value="Ivan"/>
+        <entry key="2" value="Sasha"/>
+    </util:map>
+
+
+    <bean name="jspViewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsps/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+</beans>
